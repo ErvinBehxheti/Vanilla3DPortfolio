@@ -1,11 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8" />
     <title>Ervin Behxheti</title>
-</head>
-<body>
-    
-</body>
+    <style>
+      body {
+        margin: 0;
+        overflow-x: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex justify-between items-center py-5 mx-auto c-space">
+          <a
+            href="/"
+            class="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
+            >Ervin</a
+          >
+
+          <button
+            id="menu-toggle"
+            class="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
+            aria-label="Toggle menu"
+          >
+            <img
+              id="menu-icon"
+              src="assets/menu.svg"
+              alt="toggle"
+              class="w-6 h-6"
+            />
+          </button>
+
+          <nav class="sm:flex hidden">
+            <ul id="nav-items" class="nav-ul">
+              <!-- Nav items will be populated dynamically -->
+            </ul>
+          </nav>
+        </div>
+      </div>
+
+      <div id="sidebar" class="nav-sidebar max-h-0">
+        <nav class="p-5">
+          <ul id="nav-items-mobile" class="nav-ul">
+            <!-- Nav items will be populated dynamically -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main class="max-w-7xl mx-auto relative">
+      <!-- HERO SECTION -->
+      <section class="min-h-screen w-full grid items-center relative" id="home">
+        <div
+          class="w-full mx-auto flex flex-col sm:mt-36 pb-40 c-space gap-3 z-10"
+        >
+          <p class="sm:text-3xl text-xl font-medium text-white text-center">
+            Hi, I am Ervin <span class="waving-hand">👋</span>
+          </p>
+          <p class="hero_tag text-gray_gradient">I write code.</p>
+        </div>
+      </section>
+
+      <section
+        class="min-h-screen w-full flex justify-center items-center"
+        id="contact"
+      >
+        <div
+          class="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 z-10"
+        >
+          <p class="sm:text-3xl text-xl font-medium text-white text-center">
+            Hi, I am Ervin <span class="waving-hand">👋</span>
+          </p>
+          <p class="hero_tag text-gray_gradient">I write code.</p>
+        </div>
+      </section>
+
+      <div
+        id="hacker-room"
+        class="w-full h-full fixed inset-0 left-0 right-0 bottom-0"
+      ></div>
+    </main>
+    <div class="tailwind">Tailwind and stuff</div>
+  </body>
 </html>
