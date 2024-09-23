@@ -4,56 +4,51 @@ import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { initNav, toggleMenu } from "./navbar";
+import { initAvatarScene } from "./avatarScene";
+import "./avatar-description";
 
-const hackerRoom = document.querySelector("#hacker-room");
+const hackerRoom = document.querySelector("#hacker-room") as HTMLDivElement;
 const menuToggle = document.getElementById("menu-toggle") as HTMLButtonElement;
 
 // Navbar
 menuToggle.addEventListener("click", toggleMenu);
 initNav();
 
-// Scene setup
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  100, // Wider field of view for full-screen model
+const scene: THREE.Scene = new THREE.Scene();
+const camera: THREE.PerspectiveCamera = new THREE.PerspectiveCamera(
+  100,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
 );
-
-// Adjust camera for better view
 camera.position.set(0, 100, -200);
 
-const renderer = new THREE.WebGLRenderer();
+const renderer: THREE.WebGLRenderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x000000, 0); // Transparent background
 hackerRoom?.appendChild(renderer.domElement);
 
-// Load the model
-const loader = new GLTFLoader();
-const dLoader = new DRACOLoader();
-dLoader.setDecoderPath(
+// Loader for 3D model
+const loader: GLTFLoader = new GLTFLoader();
+const dracoLoader: DRACOLoader = new DRACOLoader();
+dracoLoader.setDecoderPath(
   "https://www.gstatic.com/draco/versioned/decoders/1.5.7/"
 );
-loader.setDRACOLoader(dLoader);
+loader.setDRACOLoader(dracoLoader);
 
-let mixer: THREE.AnimationMixer; // Declare mixer variable for animations
+let mixer: THREE.AnimationMixer; // Declare mixer for model animations
 
 loader.load(
   "model/matrix_void.glb",
-  function (gltf) {
-    // Add the model to the scene
+  (gltf) => {
     const model = gltf.scene;
-    model.scale.set(100, 100, 100); // Scale the model to fit the screen
+    model.scale.set(100, 100, 100);
     scene.add(model);
-
-    // Set up the animation mixer for the model
     mixer = new THREE.AnimationMixer(model);
 
-    // Play all the animations
-    gltf.animations.forEach((clip) => {
-      mixer.clipAction(clip).play();
-    });
+    gltf.animations.forEach((clip: THREE.AnimationClip) =>
+      mixer.clipAction(clip).play()
+    );
   },
   undefined,
   function (error) {
@@ -64,17 +59,14 @@ loader.load(
 // Lighting
 const ambientLight = new THREE.AmbientLight(0x404040, 1);
 scene.add(ambientLight);
-
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(10, 10, 10);
 scene.add(directionalLight);
 
-// Camera controls for zooming
-const controls = new OrbitControls(camera, renderer.domElement);
+// Orbit Controls
+const controls: OrbitControls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false;
-controls.zoomSpeed = 1.0; // Adjust zoom sensitivity
 
-// Resize handling
 window.addEventListener("resize", () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -83,27 +75,18 @@ window.addEventListener("resize", () => {
 
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
-
-  // Move the camera upwards as the user scrolls down
-  camera.position.y = 50 - scrollY * 0.2; // Adjust the scroll sensitivity
+  camera.position.y = 50 - scrollY * 0.2;
   camera.lookAt(scene.position);
 });
 
 // Animation loop
-const clock = new THREE.Clock(); // Clock to keep track of time for animations
-
-function animate() {
+const clock: THREE.Clock = new THREE.Clock();
+const animate = (): void => {
   requestAnimationFrame(animate);
-
-  const delta = clock.getDelta(); // Get the time passed since last frame
-
-  // Update the mixer for animations
-  if (mixer) {
-    mixer.update(delta); // Update the animation based on time elapsed
-  }
-
-  controls.update(); // Update camera controls
+  const delta = clock.getDelta();
+  mixer?.update(delta);
+  controls.update();
   renderer.render(scene, camera);
-}
-
+};
 animate();
+initAvatarScene();

@@ -2,6 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Ervin Behxheti's 3D Portfolio showcasing skills, projects, and experience in web development."
+    />
+    <meta property="og:title" content="Ervin Behxheti | 3D Portfolio" />
+    <meta
+      property="og:description"
+      content="Explore Ervin Behxheti's projects, skills, and experience in an interactive 3D environment."
+    />
+    <meta property="og:image" content="assets/logo-pw.png" />
+    <meta property="og:url" content="https://ervinbehxheti.vercel.app" />
+    <meta
+      name="keywords"
+      content="Ervin Behxheti, Portfolio, Web Development, Three.js, JavaScript, TypeScript"
+    />
+    <link rel="icon" type="image/x-icon" href="assets/logo-pw.png" />
     <title>Ervin Behxheti</title>
     <style>
       body {
@@ -12,15 +29,16 @@
   </head>
   <body>
     <!-- NAVBAR -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-black/30 backdrop-blur-md">
-      <div class="max-w-7xl mx-auto">
+    <header
+      class="fixed top-0 left-0 right-0 z-10 bg-black/30 backdrop-blur-md"
+    >
+      <nav class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center py-5 mx-auto c-space">
           <a
             href="/"
             class="text-neutral-400 font-bold text-xl hover:text-white transition-colors"
             >Ervin</a
           >
-
           <button
             id="menu-toggle"
             class="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
@@ -33,50 +51,67 @@
               class="w-6 h-6"
             />
           </button>
-
           <nav class="sm:flex hidden">
             <ul id="nav-items" class="nav-ul">
               <!-- Nav items will be populated dynamically -->
             </ul>
           </nav>
         </div>
-      </div>
-
+      </nav>
       <div id="sidebar" class="nav-sidebar max-h-0">
-        <nav class="p-5">
-          <ul id="nav-items-mobile" class="nav-ul">
-            <!-- Nav items will be populated dynamically -->
-          </ul>
+        <nav>
+          <ul class="nav-ul p-5" id="nav-items-mobile"></ul>
         </nav>
       </div>
     </header>
+
     <main class="max-w-7xl mx-auto relative">
       <!-- HERO SECTION -->
       <section class="min-h-screen w-full grid items-center relative" id="home">
-        <div
-          class="w-full mx-auto flex flex-col sm:mt-36 pb-40 c-space gap-3 z-10"
-        >
-          <p class="sm:text-3xl text-xl font-medium text-white text-center">
+        <div class="w-full mx-auto flex flex-col sm:mt-36 pb-40 c-space gap-3">
+          <p class="text-3xl font-medium text-white text-center">
             Hi, I am Ervin <span class="waving-hand">👋</span>
           </p>
           <p class="hero_tag text-gray_gradient">I write code.</p>
         </div>
       </section>
 
+      <!-- ABOUT ME SECTION -->
       <section
-        class="min-h-screen w-full flex justify-center items-center"
-        id="contact"
+        class="min-h-screen w-full flex flex-col lg:flex-row pt-20 p-4"
+        id="about"
       >
+        <!-- Left Side: User List -->
         <div
-          class="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3 z-10"
+          class="w-full lg:w-[20%] drop-shadow-glow backdrop-hue-rotate-90 border-t border-b lg:border-l text-white backdrop-blur-md overflow-hidden mb-4 lg:mb-0"
         >
-          <p class="sm:text-3xl text-xl font-medium text-white text-center">
-            Hi, I am Ervin <span class="waving-hand">👋</span>
-          </p>
-          <p class="hero_tag text-gray_gradient">I write code.</p>
+          <div class="w-full h-full flex justify-center items-center user-list">
+            <ul
+              class="lg:grid flex justify-center items-center py-3 max-sm:text-sm sm:text-xl md:text-2xl lg:text-3xl rotate-x-[-10deg] lg:rotate-x-[-15deg] rotate-y-[5deg] lg:rotate-y-[10deg]"
+              id="about-list"
+            ></ul>
+          </div>
+        </div>
+
+        <!-- Middle: Avatar -->
+        <div
+          class="w-full lg:w-[35%] border-t backdrop-hue-rotate-90 overflow-hidden border-b text-white backdrop-blur-md mb-4 lg:mb-0"
+        >
+          <div id="avatar" class="w-full h-80 lg:h-full">
+            <!-- Rendered Avatar Model Here -->
+          </div>
+        </div>
+
+        <!-- Right Side: Description -->
+        <div
+          class="w-full lg:w-[45%] overflow-hidden backdrop-hue-rotate-90 backdrop-blur-md text-white grid justify-center items-center border-t border-b lg:border-r p-4"
+          id="description-text"
+        >
+          <!-- Dynamically descriptions rendered here -->
         </div>
       </section>
 
+      <!-- TOWER MODEL -->
       <div
         id="hacker-room"
         class="w-full h-full fixed inset-0 left-0 right-0 bottom-0"

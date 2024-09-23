@@ -33,7 +33,6 @@ export const toggleMenu = () => {
   menuIcon.src = isOpen ? "assets/close.svg" : "assets/menu.svg";
 };
 
-// Close the menu
 const closeMenu = () => {
   isOpen = false;
   sidebar.classList.remove("max-h-screen");
@@ -41,7 +40,6 @@ const closeMenu = () => {
   menuIcon.src = "assets/menu.svg";
 };
 
-// Populate the navigation items
 const populateNavItems = (navContainer: HTMLElement) => {
   navLinks.forEach((item) => {
     const li = document.createElement("li");
@@ -58,14 +56,12 @@ const populateNavItems = (navContainer: HTMLElement) => {
   });
 };
 
-// Initialize the navigation
 export const initNav = () => {
   const navItems = document.getElementById("nav-items") as HTMLUListElement;
   const navItemsMobile = document.getElementById(
     "nav-items-mobile"
   ) as HTMLUListElement;
 
-  // Populate both desktop and mobile navs
   populateNavItems(navItems);
   populateNavItems(navItemsMobile);
 };
