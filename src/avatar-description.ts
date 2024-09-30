@@ -44,8 +44,6 @@ const descriptionPanel = [
                 <li>HTML & CSS</li>
                 <li>React.js</li>
                 <li>Next.js</li>
-                <li>Angular (Familiar)</li>
-                <li>Lit Framework (Familiar)</li>
                 <li>Node.js</li>
                 <li>Express.js</li>
               </ul>
@@ -65,16 +63,6 @@ const descriptionPanel = [
               </ul>
             </div>
             <div>
-              <h2 class="max-sm:text-sm sm:text-xl font-medium text-[#00eaff] mb-2">
-                Deployment & Misc
-              </h2>
-              <ul class="max-sm:text-xs md:space-y-2 text-sm leading-6 text-gray-300">
-                <li>CDNs & Web Hosting</li>
-                <li>PWAs</li>
-                <li>Data Visualization</li>
-                <li>PWA Concepts & Service Workers</li>
-                <li>Familiar with SEO best practices</li>
-              </ul>
             </div>
           </div>
           <div class="absolute bottom-4 right-4 flex items-center gap-2">

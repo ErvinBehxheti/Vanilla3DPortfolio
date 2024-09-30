@@ -107,6 +107,18 @@ body {
   }
 }
 
+/* Wormhole Travel */
+
+#wormhole-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999; /* Ensure it's on top of other elements if needed */
+  overflow: hidden;
+}
+
 /* ABOUT SECTION */
 
 #about {
@@ -147,70 +159,26 @@ body {
 
 /* PROJECTS SECTION */
 
-.banner {
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  overflow: hidden;
-  position: relative;
-}
-.banner .slider {
-  position: absolute;
-  width: 200px;
-  height: 250px;
-  top: 10%;
-  left: calc(50% - 100px);
-  transform-style: preserve-3d;
-  transform: perspective(1000px);
-  animation: autoRun 20s linear infinite;
-  z-index: 2;
-}
-@keyframes autoRun {
-  from {
-    transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
-  }
-  to {
-    transform: perspective(1000px) rotateX(-16deg) rotateY(360deg);
-  }
-}
-
-.banner .slider .item {
-  position: absolute;
-  inset: 0 0 0 0;
-  transform: rotateY(
-      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
-    )
-    translateZ(400px);
-}
-.banner .slider .item img {
-  width: 100%;
-  height: 100%;
+/* Tailwind utility classes handle basic layout and positioning */
+.project img {
+  width: 400px;
+  height: 400px;
+  transition: ease-in 0.2s;
   object-fit: cover;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  -webkit-transition: ease-in 0.2s;
+  -moz-transition: ease-in 0.2s;
+  -ms-transition: ease-in 0.2s;
+  -o-transition: ease-in 0.2s;
 }
 
-@media screen and (max-width: 1023px) {
-  .banner .slider {
-    width: 160px;
-    height: 200px;
-    left: calc(50% - 80px);
-  }
-  .banner .slider .item {
-    transform: rotateY(
-        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
-      )
-      translateZ(300px);
-  }
-}
-@media screen and (max-width: 767px) {
-  .banner .slider {
-    width: 100px;
-    height: 150px;
-    left: calc(50% - 50px);
-  }
-  .banner .slider .item {
-    transform: rotateY(
-        calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
-      )
-      translateZ(180px);
-  }
+.project img:hover {
+  transition: ease-in 0.2s;
+  filter: blur(0px);
+  -webkit-filter: blur(0px);
+  -webkit-transition: ease-in 0.2s;
+  -moz-transition: ease-in 0.2s;
+  -ms-transition: ease-in 0.2s;
+  -o-transition: ease-in 0.2s;
 }
