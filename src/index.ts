@@ -9,7 +9,9 @@ import spline from "./spline";
 import { initAvatarScene } from "./avatarScene";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import { initNav, toggleMenu } from "./navbar";
+import "./projects";
 import "./avatar-description";
+import { initTvScene } from "./projects";
 
 // Wormhole traveling scene setup
 const w = window.innerWidth;
@@ -92,7 +94,7 @@ setTimeout(() => {
       initMainScene(); // Load the main scene after the wormhole disappears
     }
   }, fadeOutInterval);
-}, 2000); // 2 seconds delay before starting fade-out
+}, 1000); // 2 seconds delay before starting fade-out
 
 // Main scene (with models and animations) initialization
 function initMainScene() {
@@ -184,4 +186,5 @@ function initMainScene() {
   };
   animateMainScene();
   initAvatarScene();
+  initTvScene();
 }
