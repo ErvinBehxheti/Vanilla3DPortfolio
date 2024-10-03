@@ -97,6 +97,24 @@ setTimeout(() => {
   }, fadeOutInterval);
 }, 0);
 
+function initMusic() {
+  const backgroundMusic = new Audio("/sound/matrix-rain.mp3");
+  backgroundMusic.loop = true;
+  backgroundMusic.volume = 0.5
+  
+  const playMusic = () => {
+    backgroundMusic.play().catch((error) => {
+      console.error("Error playing music:", error);
+    });
+
+    document.removeEventListener("click", playMusic);
+    document.removeEventListener("keydown", playMusic);
+  };
+
+  document.addEventListener("click", playMusic);
+  document.addEventListener("keydown", playMusic);
+}
+
 // Main scene (with models and animations) initialization
 function initMainScene() {
   const hackerRoom = document.querySelector("#hacker-room") as HTMLDivElement;
@@ -188,4 +206,5 @@ function initMainScene() {
   animateMainScene();
   initAvatarScene();
   initTvScene();
+  initMusic()
 }
