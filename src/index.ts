@@ -12,6 +12,7 @@ import { initNav, toggleMenu } from "./navbar";
 import "./projects";
 import "./avatar-description";
 import { initTvScene } from "./projects";
+import "./contact";
 
 // Wormhole traveling scene setup
 const w = window.innerWidth;
@@ -94,7 +95,7 @@ setTimeout(() => {
       initMainScene(); // Load the main scene after the wormhole disappears
     }
   }, fadeOutInterval);
-}, 1000); // 2 seconds delay before starting fade-out
+}, 0);
 
 // Main scene (with models and animations) initialization
 function initMainScene() {

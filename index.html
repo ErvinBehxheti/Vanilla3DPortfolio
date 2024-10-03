@@ -195,6 +195,52 @@
         </div>
       </section>
 
+      <!-- CONTACT SESSION -->
+
+      <section id="contact" class="flex items-center justify-center h-screen">
+        <div class="text-green-500 max-w-lg w-full p-6">
+          <h2 class="text-3xl mb-4 glitch">Contact Me</h2>
+          <form id="contact-form" class="space-y-4">
+            <div>
+              <label for="name" class="block glitch">Name</label>
+              <input
+                id="name"
+                type="text"
+                class="w-full bg-transparent border border-green-500 text-green-500 p-2 mt-1 focus:ring-2 focus:ring-green-400 outline-none"
+                required
+              />
+            </div>
+            <div>
+              <label for="email" class="block glitch">Email</label>
+              <input
+                id="email"
+                type="email"
+                class="w-full bg-transparent border border-green-500 text-green-500 p-2 mt-1 focus:ring-2 focus:ring-green-400 outline-none"
+                required
+              />
+            </div>
+            <div>
+              <label for="message" class="block glitch">Message</label>
+              <textarea
+                id="message"
+                class="w-full bg-transparent border border-green-500 text-green-500 p-2 mt-1 focus:ring-2 focus:ring-green-400 outline-none"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <div>
+              <button
+                type="submit"
+                class="w-full bg-green-500 text-black p-2 mt-4 hover:bg-green-400 transition-colors"
+              >
+                Send
+              </button>
+            </div>
+            <p id="form-status" class="text-red-500 mt-2 hidden"></p>
+          </form>
+        </div>
+      </section>
+
       <!-- TOWER MODEL -->
       <div
         id="hacker-room"
