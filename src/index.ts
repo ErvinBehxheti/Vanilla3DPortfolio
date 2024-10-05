@@ -95,25 +95,25 @@ setTimeout(() => {
       initMainScene(); // Load the main scene after the wormhole disappears
     }
   }, fadeOutInterval);
-}, 0);
+}, 1000);
 
-function initMusic() {
-  const backgroundMusic = new Audio("/sound/matrix-rain.mp3");
-  backgroundMusic.loop = true;
-  backgroundMusic.volume = 0.5
-  
-  const playMusic = () => {
-    backgroundMusic.play().catch((error) => {
-      console.error("Error playing music:", error);
-    });
+// function initMusic() {
+//   const backgroundMusic = new Audio("/sound/matrix-rain.mp3");
+//   backgroundMusic.loop = true;
+//   backgroundMusic.volume = 0.5
 
-    document.removeEventListener("click", playMusic);
-    document.removeEventListener("keydown", playMusic);
-  };
+//   const playMusic = () => {
+//     backgroundMusic.play().catch((error) => {
+//       console.error("Error playing music:", error);
+//     });
 
-  document.addEventListener("click", playMusic);
-  document.addEventListener("keydown", playMusic);
-}
+//     document.removeEventListener("click", playMusic);
+//     document.removeEventListener("keydown", playMusic);
+//   };
+
+//   document.addEventListener("click", playMusic);
+//   document.addEventListener("keydown", playMusic);
+// }
 
 // Main scene (with models and animations) initialization
 function initMainScene() {
@@ -206,5 +206,4 @@ function initMainScene() {
   animateMainScene();
   initAvatarScene();
   initTvScene();
-  initMusic()
 }
