@@ -343,7 +343,7 @@ export const descriptionPanel = [
         <div class="space-y-6 pb-20">
           <div>
             <h2 class="max-sm:text-sm sm:text-xl font-medium text-[#00eaff]">Front-End Developer</h2>
-            <p class="text-sm text-gray-400">Attributy &bull; September 2022 - June 2024</p>
+            <p class="text-sm text-gray-400">Attributy &bull; October 2022 - November 2023</p>
           </div>
       
           <ul class="list-disc list-inside space-y-2 max-sm:text-xs text-sm leading-relaxed text-gray-300">
